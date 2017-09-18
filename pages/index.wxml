@@ -1,0 +1,23 @@
+<!--pages/index.wxml-->
+<view class='container'>
+  <view wx:if='{{avatar && nickname}}' bindtap='copy_openid' class='userinfo'>
+    <image data-openid='{{openid}}' class='avatar' src='{{avatar}}' mode='widthFix' />
+    <text data-openid='{{openid}}'>{{nickname}}</text>
+  </view>
+  <view class='info'>
+    <text>室内温度：{{wendu}}</text>
+  </view>
+  <view class='info'>
+    <text>室内湿度：{{shidu}}</text>
+  </view>
+  <view class='lock'>
+    <image wx:if='{{unlock}}' bindtap='unlock' src='../unlock.png' mode='widthFix'></image>
+    <image wx:else bindtap='unlock' src='../locked.png' mode='widthFix'></image>
+    <view class='tip'>
+      <text>{{action_tip}}</text>
+    </view>
+  </view>
+  <view wx:if='{{openid}}' bindtap='copy_openid' id='openid'>
+    <text data-openid='{{openid}}'>{{openid}}</text>
+  </view>
+</view>
